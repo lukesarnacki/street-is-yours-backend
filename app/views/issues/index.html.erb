@@ -1,8 +1,8 @@
 <h1>Issues</h1>
-<div class="col-md-8" id="map-container">
+<div class="col-md-7" id="map-container">
   <div id="map-canvas"></div>
 </div>
-<div class="col-md-4">
+<div class="col-md-5">
 <%= render 'list' %>
 </div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBqz5pjoBwTK_p-nQ7g3xBSHGD7RWl0jJE&sensor=false"></script>
@@ -21,20 +21,28 @@
         position: new google.maps.LatLng(<%= issue.latitude %>, <%= issue.longitude %>),
         map: map
       });
+
       var contentString = '<div id="content">'+
-            '<h1 id="firstHeading" class="firstHeading"><%= issue.category.capitalize %></h1>'+
+            '<h2><%= issue.category.capitalize %></h2>'+
             '<div id="bodyContent">'+
-            '<div class="issuePic"><%= issue.images %>' +
+            '<div class="issuePic">'+
+            '<img src="<%= issue.image %>"/>' +
             '</div>'+
             '<p><%= issue.category %>' +
             '</p>'+
+            '<span class="date">Created at <%= issue.created_at.strftime("%y-%m-%d") %>' +
+            '</span>'+
             '</div>'+
             '</div>';
 
       var infowindow = new google.maps.InfoWindow({
                          content: contentString
                       });
-     marker.addListener('click', function() {
+      marker.addListener('click', function() {
+               infowindow.open(map, marker);
+             });
+      issueTr=$("#issue-list").find("#<%= issue.id %>");
+      $(issueTr).click(function() {
                infowindow.open(map, marker);
              });
     <% end %>

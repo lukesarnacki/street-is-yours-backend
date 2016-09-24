@@ -1,9 +1,11 @@
-<table class="table table-bordered table-hover">
+<table class="table table-bordered table-hover" id="issue-list">
   <% @issues.each do |issue| %>
-    <tr>
-      <td> <%= issue.category %></td>
-      <td> <%= issue.description %></td>
-      <td> <%= issue.created_at %>
+    <tr id="<%= issue.id %>">
+      <td>
+        <span class="state <%= issue.state %>">< <%= issue.category.capitalize %></span>
+      </td>
+      <td class="col-md-6"> <%= truncate issue.description, length: 30 %></td>
+      <td> <%= issue.created_at.strftime("%y-%m-%d") %>
     </tr>
   <% end %>
 </table>
