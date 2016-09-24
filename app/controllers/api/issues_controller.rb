@@ -7,7 +7,13 @@ class Api::IssuesController < Api::BaseController
   end
 
   def index
-    render json: Issue.all
+    issues = if params[:latitude].presence && params[:longitude].presence
+               Issue.near([params[:latitude], params[:longitude]], 0.2, units: :km)
+             else
+               Issue.all
+             end
+
+    render json: issues
   end
 
   def issue_params

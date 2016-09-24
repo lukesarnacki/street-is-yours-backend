@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20160924181416) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "state",                                      default: 0
+    t.string   "location"
   end
 
   create_table "users", force: :cascade do |t|
