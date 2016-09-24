@@ -11,7 +11,7 @@
     var map = new google.maps.Map($('#map-container')[0], {
       zoom: 12,
       center: new google.maps.LatLng(48.8566,2.3522),
-      mapTypeId: google.maps.MapTypeId.SATELLITE
+      mapTypeId: google.maps.MapTypeId.MAP
     });
 
     var infowindow = new google.maps.InfoWindow();
@@ -23,8 +23,7 @@
       });
 
       var contentString = '<div id="content">'+
-            '<div class="issue-label"><span class="issue-state <%= issue.state %>">&nbsp;</span></div>' +
-            '<h2><%= issue.category.to_s.capitalize %></h2>'+
+            '<h3><%= issue.category.capitalize %></h3>'+
             '<div id="bodyContent">'+
             '<div class="issuePic">'+
             '<img src="<%= issue.image %>"/>' +
@@ -39,13 +38,18 @@
       var infowindow = new google.maps.InfoWindow({
                          content: contentString
                       });
+      issueTr=$("#issue-list").find("#<%= issue.id %>");
       marker.addListener('click', function() {
                infowindow.open(map, marker);
+              $(issueTr).addClass('highlight');
              });
-      issueTr=$("#issue-list").find("#<%= issue.id %>");
       $(issueTr).click(function() {
                infowindow.open(map, marker);
+              $(issueTr).addClass('highlight');
              });
+       infoWindow.addListener('closeclick',function(){
+          $(issueTr).removeClass('highlight');
+       });
     <% end %>
   });
 <% end -%>

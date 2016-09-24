@@ -1,11 +1,16 @@
 <table class="table table-bordered table-hover" id="issue-list">
   <% @issues.each do |issue| %>
     <tr id="<%= issue.id %>">
-      <td>
-        <span class="issue-state <%= issue.state %>">&nbsp;</span><%= issue.category.to_s.capitalize %>
+      <td class="col-md-2">
+        <img src="<%= issue.image %>"/>
       </td>
-      <td class="col-md-6"> <%= truncate issue.description, length: 30 %></td>
-      <td> <%= issue.created_at.strftime("%y-%m-%d") %>
+      <td class="col-md-10">
+        <strong> <%= issue.category.to_s.capitalize %> </strong>
+        <br>
+        <%= issue.description %>
+        <br>
+        <em style="float: right;"> <%= issue.created_at.strftime("%y-%m-%d") %> </em>
+      </td>
     </tr>
   <% end %>
 </table>
