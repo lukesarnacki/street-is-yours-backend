@@ -1,0 +1,13 @@
+// Place all the styles related to the WebSpp controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#map-container {
+  height: 600px;
+  .issuePic {
+    max-width: 200px;
+    padding-bottom: 5px;
+  }
+  span.date {
+    font-style: italic;
+  }
+}
