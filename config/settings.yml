@@ -1,2 +1,2 @@
-carrierwave:
+paperclip:
   storage: 'file'

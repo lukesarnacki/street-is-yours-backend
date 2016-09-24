@@ -1,2 +1,2 @@
-carrierwave:
-  storage: 'fog'
+paperclip:
+  storage: 's3'
