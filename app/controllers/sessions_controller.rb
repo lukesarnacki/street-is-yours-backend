@@ -1,8 +1,10 @@
 class SessionsController < ApplicationController
+  before_action :save_login_state, :only => [:login]
 
   def login
     authorized_user = User.authenticate(params[:email],params[:login_password])
     if authorized_user
+      session[:user_id] = authorized_user.id
       flash.now[:notice] = "You logged in as #{authorized_user.email}"
       flash.now[:color]= "success"
       redirect_to issues_path
