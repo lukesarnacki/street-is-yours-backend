@@ -2,7 +2,7 @@
   <% @issues.each do |issue| %>
     <tr id="<%= issue.id %>">
       <td class="col-md-2">
-        <img src="<%= issue.image %>"/>
+        <img src="<%= issue.image.url %>"/>
       </td>
       <td class="col-md-10">
         <strong> <%= issue.category.to_s.capitalize %> </strong>
