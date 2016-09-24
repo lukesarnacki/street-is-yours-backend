@@ -23,6 +23,7 @@
       });
 
       var contentString = '<div id="content">'+
+            '<div class="issue-label"><span class="issue-state <%= issue.state %>">&nbsp;</span></div>' +
             '<h2><%= issue.category.capitalize %></h2>'+
             '<div id="bodyContent">'+
             '<div class="issuePic">'+

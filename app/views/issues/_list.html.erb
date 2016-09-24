@@ -2,7 +2,7 @@
   <% @issues.each do |issue| %>
     <tr id="<%= issue.id %>">
       <td>
-        <span class="state <%= issue.state %>">< <%= issue.category.capitalize %></span>
+        <span class="issue-state <%= issue.state %>">&nbsp;</span><%= issue.category.capitalize %>
       </td>
       <td class="col-md-6"> <%= truncate issue.description, length: 30 %></td>
       <td> <%= issue.created_at.strftime("%y-%m-%d") %>

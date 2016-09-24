@@ -1,3 +1,3 @@
 class IssueSerializer < ActiveModel::Serializer
-  attributes :category, :description, :image, :latitude, :longitude
+  attributes :category, :description, :image, :latitude, :longitude, :state
 end

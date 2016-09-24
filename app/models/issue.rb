@@ -1,6 +1,6 @@
 class Issue < ApplicationRecord
   attr_accessor :content_type, :original_filename, :image_data
-  enum status: { todo: 0, in_progress: 1, fixed: 2 }
+  enum state: { todo: 0, in_progress: 1, fixed: 2 }
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   before_save :decode_base64_image

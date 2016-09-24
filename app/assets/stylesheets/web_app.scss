@@ -11,3 +11,30 @@
     font-style: italic;
   }
 }
+
+.issue-state {
+	width: 60px;
+	height: 60px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  font-size: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.todo {
+  background: red;
+}
+
+.in_progress {
+  background: yellow;
+}
+
+.fixed {
+  background: green;
+}
+
+.issue-label {
+  float: right;
+}
