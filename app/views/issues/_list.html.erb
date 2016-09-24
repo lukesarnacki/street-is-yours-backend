@@ -5,7 +5,7 @@
         <img src="<%= issue.image %>"/>
       </td>
       <td class="col-md-10">
-        <strong> <%= issue.category.capitalize %> </strong>
+        <strong> <%= issue.category.to_s.capitalize %> </strong>
         <br>
         <%= issue.description %>
         <br>
