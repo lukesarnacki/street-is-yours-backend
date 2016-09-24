@@ -3,6 +3,9 @@ class Issue < ApplicationRecord
   has_attached_file :image
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   before_save :decode_base64_image
+  reverse_geocoded_by :latitude, :longitude, :address => :location
+  #after_validation :reverse_geocode
+
 
   protected
 
