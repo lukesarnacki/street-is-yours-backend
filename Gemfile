@@ -28,12 +28,14 @@ gem 'turbolinks', '~> 5'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'active_model_serializers', '~> 0.10.0'
-gem 'fog', require: 'fog/aws'
-gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'config'
 gem 'figaro'
 gem 'mini_magick'
-gem 'net-ssh'
+
+gem 'aws-sdk', '~> 2.3.0'
+gem "paperclip", "~> 5.0.0"
+
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

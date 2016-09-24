@@ -1,11 +1,6 @@
-if Settings.carrierwave.storage.to_s == 'fog'
-  CarrierWave.configure do |config|
-    config.fog_provider = 'fog/aws'
-    config.fog_credentials = {
-      provider:              'AWS',
-      aws_access_key_id:     ENV['AWS_ACCESS_KEY_ID'],
-      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
-    }
-    config.fog_directory  = ENV['fog_directory'] || 'street-is-yours'
-  end
+if Settings.paperclip.storage.to_s == 'fog'
+  config.paperclip_defaults = {
+    storage: :fog,
+    fog_credentials: { fog_directory: ENV['fog_directory'] || 'street-is-yours' }
+  }
 end
