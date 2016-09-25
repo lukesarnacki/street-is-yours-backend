@@ -39,19 +39,19 @@
       var infowindow<%= issue.id %> = new google.maps.InfoWindow({
                          content: contentString
                       });
-      issueTr=$("#issue-list").find("#<%= issue.id %>");
+      issueTr<%= issue.id %>=$("#issue-list").find("#<%= issue.id %>");
       marker<%= issue.id %>.addListener('click', function() {
                infowindow<%= issue.id %>.open(map, marker<%= issue.id %>);
-              $(issueTr).addClass('highlight');
-              $(issueTr).find(".buttons").show();
+              $(issueTr<%= issue.id %>).addClass('highlight');
+              $(issueTr<%= issue.id %>).find(".buttons").show();
              });
-      $(issueTr).click(function() {
+      $(issueTr<%= issue.id %>).click(function() {
                infowindow<%= issue.id %>.open(map, marker<%= issue.id %>);
-              $(issueTr).addClass('highlight');
-              $(issueTr).find(".buttons").show();
+              $(issueTr<%= issue.id %>).addClass('highlight');
+              $(issueTr<%= issue.id %>).find(".buttons").show();
              });
        infowindow<%= issue.id %>.addListener('closeclick',function(){
-          $(issueTr).removeClass('highlight');
+          $(issueTr<%= issue.id %>).removeClass('highlight');
           $(".buttons").hide();
        });
     <% end %>
