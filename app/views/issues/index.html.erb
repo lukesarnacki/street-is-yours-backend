@@ -23,7 +23,7 @@
       });
 
       var contentString = '<div id="content">'+
-            '<h3><%= issue.category.capitalize %></h3>'+
+            '<h3><%= issue.category.to_s.capitalize %></h3>'+
             '<span class="label label-default"><%= issue.state.humanize %></span> <br>'+
             '<div id="bodyContent">'+
             '<div class="issuePic">'+
