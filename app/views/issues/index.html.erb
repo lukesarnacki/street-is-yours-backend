@@ -17,7 +17,7 @@
     var infowindow = new google.maps.InfoWindow();
 
     <% @issues.each do |issue| %>
-      var marker = new google.maps.Marker({
+      var marker<%= issue.id %> = new google.maps.Marker({
         position: new google.maps.LatLng(<%= issue.latitude %>, <%= issue.longitude %>),
         map: map
       });
@@ -36,21 +36,21 @@
             '</div>'+
             '</div>';
 
-      var infowindow = new google.maps.InfoWindow({
+      var infowindow<%= issue.id %> = new google.maps.InfoWindow({
                          content: contentString
                       });
       issueTr=$("#issue-list").find("#<%= issue.id %>");
-      marker.addListener('click', function() {
-               infowindow.open(map, marker);
+      marker<%= issue.id %>.addListener('click', function() {
+               infowindow<%= issue.id %>.open(map, marker<%= issue.id %>);
               $(issueTr).addClass('highlight');
               $(issueTr).find(".buttons").show();
              });
       $(issueTr).click(function() {
-               infowindow.open(map, marker);
+               infowindow<%= issue.id %>.open(map, marker<%= issue.id %>);
               $(issueTr).addClass('highlight');
               $(issueTr).find(".buttons").show();
              });
-       infowindow.addListener('closeclick',function(){
+       infowindow<%= issue.id %>.addListener('closeclick',function(){
           $(issueTr).removeClass('highlight');
           $(".buttons").hide();
        });
