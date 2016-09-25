@@ -10,6 +10,12 @@
         <%= issue.description %>
         <br>
         <em style="float: right;"> <%= issue.created_at.strftime("%y-%m-%d") %> </em>
+        <div class="buttons">
+          <br>
+          <%= link_to "Fix!", issue_path(issue, params: {issue: {state: 2}}),
+                {method: :put, class: "btn-default btn-success btn-sm #{(issue.fixed? ? 'disabled' : '' )}",
+                  role: 'button'} %>
+        </div>
       </td>
     </tr>
   <% end %>

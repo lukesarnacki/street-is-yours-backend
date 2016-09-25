@@ -11,3 +11,13 @@
     font-style: italic;
   }
 }
+
+table {
+  tr td img {
+    max-height: 50px;
+  }
+
+  .highlight {
+    background-color: lightgrey;
+  }
+}

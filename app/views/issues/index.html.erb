@@ -9,8 +9,8 @@
 <%= javascript_tag do %>
   $( document ).ready(function() {
     var map = new google.maps.Map($('#map-container')[0], {
-      zoom: 12,
-      center: new google.maps.LatLng(48.8566,2.3522),
+      zoom: 16,
+      center: new google.maps.LatLng(<%= @recent_issue.latitude %>, <%= @recent_issue.longitude %>),
       mapTypeId: google.maps.MapTypeId.MAP
     });
 
@@ -47,7 +47,7 @@
                infowindow.open(map, marker);
               $(issueTr).addClass('highlight');
              });
-       infoWindow.addListener('closeclick',function(){
+       infowindow.addListener('closeclick',function(){
           $(issueTr).removeClass('highlight');
        });
     <% end %>
