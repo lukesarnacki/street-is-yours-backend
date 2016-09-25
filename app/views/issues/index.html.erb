@@ -24,6 +24,7 @@
 
       var contentString = '<div id="content">'+
             '<h3><%= issue.category.capitalize %></h3>'+
+            '<span class="label label-default"><%= issue.state.humanize %></span> <br>'+
             '<div id="bodyContent">'+
             '<div class="issuePic">'+
             '<img src="<%= issue.image %>"/>' +
@@ -42,13 +43,16 @@
       marker.addListener('click', function() {
                infowindow.open(map, marker);
               $(issueTr).addClass('highlight');
+              $(".buttons").show();
              });
       $(issueTr).click(function() {
                infowindow.open(map, marker);
               $(issueTr).addClass('highlight');
+              $(".buttons").show();
              });
        infowindow.addListener('closeclick',function(){
           $(issueTr).removeClass('highlight');
+          $(".buttons").hide();
        });
     <% end %>
   });
