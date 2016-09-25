@@ -12,8 +12,9 @@ class Api::IssuesController < Api::BaseController
              else
                Issue.all
              end
+    issues = issues.limit(params[:limit]) if params[:limit].present?
 
-    render json: issues.limit(5)
+    render json: issues
   end
 
   def issue_params
