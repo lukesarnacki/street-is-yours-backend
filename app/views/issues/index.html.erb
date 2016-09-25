@@ -43,12 +43,12 @@
       marker.addListener('click', function() {
                infowindow.open(map, marker);
               $(issueTr).addClass('highlight');
-              $(".buttons").show();
+              $(issueTr).find(".buttons").show();
              });
       $(issueTr).click(function() {
                infowindow.open(map, marker);
               $(issueTr).addClass('highlight');
-              $(".buttons").show();
+              $(issueTr).find(".buttons").show();
              });
        infowindow.addListener('closeclick',function(){
           $(issueTr).removeClass('highlight');
