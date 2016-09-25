@@ -13,7 +13,7 @@ class Api::IssuesController < Api::BaseController
                Issue.all
              end
 
-    render json: issues
+    render json: issues.limit(5)
   end
 
   def issue_params
